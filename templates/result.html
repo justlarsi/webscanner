@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Analysis Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Analysis for {{ url }}</h1>
+
+        {% if results.error %}
+            <p class="error">{{ results.error }}</p>
+        {% else %}
+            <p><strong>Cookies found:</strong> {{ 'Yes' if results.cookies else 'No' }}</p>
+
+            <p><strong>Trackers detected:</strong>
+            {% if results.trackers %}
+                {{ ', '.join(results.trackers) }}
+            {% else %}
+                None
+            {% endif %}
+            </p>
+
+            <h2>Recommendations:</h2>
+            <ul>
+                {% for recommendation in results.recommendations %}
+                    <li>{{ recommendation }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="/">Analyze another site</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Privacy Awareness App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Privacy Awareness Tool</h1>
+        <form action="/analyze" method="POST">
+            <label for="url">Enter a website URL:</label>
+            <input type="text" id="url" name="url" required placeholder="https://example.com">
+            <button type="submit">Analyze</button>
+            <a href="/vulnerability_scan">Run Vulnerability Scan</a>
+        </form>
+    </div>
+</body>
+</html>
